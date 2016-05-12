@@ -24,6 +24,7 @@ public class NotifyAspect {
 
     @After("methodPointcut() && notifyPointcut()") 
     public void notifyClients() throws Throwable {
+    	
         template.convertAndSend(WEBSOCKET_TOPIC, new Date());
     }
 
